@@ -1,0 +1,107 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900italic,900,700,700italic,400italic,300italic,300,100,100italic);
+
+$critical : #F00;
+$high     : #FA0;
+$medium   : #FF0;
+$low      : #5AF;
+
+body {
+	font-family: "Lato";
+	background-color: #F4F4F4;
+
+  #container {
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+
+    .navigation {
+      .nav-item {
+        padding: 10px 0 0;
+        width: 200px;
+        background: #FFF;
+      }
+
+      .status {
+        text-align: left;
+        margin: 0 25px;
+
+        div {
+          display: inline-block;
+          text-align: center;
+          width: 30px;
+          margin: 0 2px;
+          padding-top: 30px;
+
+          &.prio-critical {
+            background: $critical;
+          }
+          &.prio-high {
+            background: $high;
+          }
+          &.prio-medium {
+            background: $medium;
+          }
+          &.prio-low {
+            background: $low;
+          }
+        }
+      }
+    }
+
+    content {
+      text-align: left;
+    }
+
+    .title {
+      font-weight: 700;
+    }
+
+    .menu>ul {
+      margin: 100px 0 20px;
+      list-style-type: none;
+      
+      li {
+        display: inline;
+        margin: 0 10px;
+
+        a {
+          background: #FFF;
+          border-radius: 8px;
+          padding: 20px;
+          display: inline-block;
+
+          &:hover {
+            background: #EEE;
+          }
+        }
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+
+  &:hover {
+    color: #666;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+table.tablesorter thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(desc.gif);
+}
+

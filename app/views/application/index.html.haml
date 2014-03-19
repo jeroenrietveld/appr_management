@@ -1,0 +1,21 @@
+%h1.title ApproXIV Management Dashboard
+
+.menu
+  = render_navigation
+
+.navigation
+  .nav-item
+    %h2= link_to 'Tasks', tasks_path
+    - tasks = {total: Task.all.count, critical: Task.where(:priority_id => 4).count, high: Task.where(:priority_id => 3).count, medium: Task.where(:priority_id => 2).count, low: Task.where(:priority_id => 1).count}
+    %p
+      Tasks:
+      = tasks[:total]
+    .status{data: {'total-tasks' => tasks[:total]}}
+      .prio-critical{data: {'tasks' => tasks[:critical]}}
+        = tasks[:critical]
+      .prio-high{data: {'tasks' => tasks[:high]}}
+        = tasks[:high]
+      .prio-medium{data: {'tasks' => tasks[:medium]}}
+        = tasks[:medium]
+      .prio-low{data: {'tasks' => tasks[:low]}}
+        = tasks[:low]

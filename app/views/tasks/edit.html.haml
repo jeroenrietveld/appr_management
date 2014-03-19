@@ -1,0 +1,7 @@
+%h1.title ApproXIV Management Edit Task: #{@task.name}
+
+%p
+  = link_to icon('arrow-circle-left') + " back", tasks_path
+
+%content
+  = render 'form'

@@ -1,0 +1,16 @@
+= simple_form_for @task do |f|
+  = render 'shared/error_messages', object: f.object
+
+  %p
+    = f.input :name
+
+  %p
+    = f.label :priority_id
+    = f.select(:priority_id, Priority.all.collect {|p| [ p.name, p.id ] }, {}, {:class => 'select2', :prompt => true})
+
+  %p
+    = f.label :person_id
+    = f.select(:person_id, Person.all.collect {|p| [ p.full_name, p.id ] }, {}, {:class => 'select2', :prompt => true})
+
+  = link_to 'Cancel', tasks_path, class: 'btn'
+  = f.button :submit, class: 'btn btn-primary'
