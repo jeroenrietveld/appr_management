@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_filter :authenticate_user!
 
   before_filter :new_task, only: [:new, :create]
   before_filter :load_task, only: [:show, :update, :edit, :destroy]
@@ -52,6 +53,6 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:name, :priority_id, :person_id)
+      params.require(:task).permit(:name, :priority_id, :user_id, :estimation, :sprint_id)
     end
 end

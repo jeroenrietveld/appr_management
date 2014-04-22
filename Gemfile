@@ -32,6 +32,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'select2-rails'
 
+gem 'devise'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

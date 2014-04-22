@@ -9,8 +9,18 @@
     = f.select(:priority_id, Priority.all.collect {|p| [ p.name, p.id ] }, {}, {:class => 'select2', :prompt => true})
 
   %p
-    = f.label :person_id
-    = f.select(:person_id, Person.all.collect {|p| [ p.full_name, p.id ] }, {}, {:class => 'select2', :prompt => true})
+    = f.label :user_id
+    = f.select(:user_id, User.all.collect {|p| [ p.full_name, p.id ] }, {}, {:class => 'select2', :prompt => true})
+
+  %p
+    = f.label :sprint_id
+    = f.select(:sprint_id, Sprint.all.collect {|s| s.name }, {}, {:class => 'select2', :promt => true})
+
+  %p
+    = f.input :estimation
+
+  %p
+    = f.input :description
 
   = link_to 'Cancel', tasks_path, class: 'btn'
   = f.button :submit, class: 'btn btn-primary'

@@ -1,0 +1,11 @@
+= simple_form_for @sprint do |f|
+  = f.error_notification
+
+  = f.input :startdate
+  = f.input :enddate
+
+  = f.input :name
+
+  = f.collection_check_boxes :task_ids, Task.all, :id, :name, {class: 'select2'})
+
+  = f.button :submit

@@ -9,6 +9,8 @@
       %th Name
       %th Priority
       %th Assignee
+      %th Sprint
+      %th Estimation
       %th Actions
   %tbody
     - @tasks.each do |task|
@@ -16,12 +18,14 @@
         %td= link_to task.name, task_path(task.id)
         %td= task.priority.name unless !task.priority
         %td
-          - if task.person
-            = task.person.full_name
+          - if task.user
+            = task.user.full_name
           - else
             = simple_form_for task do |f|
-              = f.select(:person_id, Person.all.collect {|p| [ p.full_name, p.id ] }, {}, {:class => 'select2', :prompt => true})
+              = f.select(:user_id, User.all.collect {|p| [ p.full_name, p.id ] }, {}, {:class => 'select2', :prompt => true})
               = f.button :submit, 'Save', :class => 'btn btn-primary'
+        %td= task.sprint.name unless !task.sprint
+        %td= task.estimation
         %td
           = link_to 'Edit', edit_task_path(task.id), class: 'btn btn-primary'
           = link_to 'Delete', task_path(task.id), class: 'btn btn-danger', :confirm => 'Are you sure?', :method => :delete

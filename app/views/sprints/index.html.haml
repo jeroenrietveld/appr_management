@@ -1,0 +1,22 @@
+%h1 Listing sprints
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Startdate
+      %th Enddate
+      %th Name
+      %th Tasks
+      %th{colspan: 3} Actions
+  %tbody
+    - @sprints.each do |sprint|
+      %tr
+        %td= sprint.startdate
+        %td= sprint.enddate
+        %td= sprint.name
+        %td= sprint.tasks.count
+        %td= link_to 'Show', sprint
+        %td= link_to 'Edit', edit_sprint_path(sprint)
+        %td= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' }
+
+= link_to 'New Sprint', new_sprint_path
